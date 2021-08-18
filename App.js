@@ -2,15 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import React, { useState } from "react";
-import {
-  Button,
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import Header from "./components/Header";
 import GameScreen from "./screens/GameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
@@ -42,7 +34,8 @@ export default function App() {
     setUserNumber(null);
   };
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
+      {/* <View> */}
       <Header title="Guess a number" />
       {userNumber && guessRounds <= 0 ? (
         <GameScreen onGameOver={gameOverHandler} userChoice={userNumber} />
@@ -55,7 +48,8 @@ export default function App() {
           newGame={newGameHandler}
         />
       )}
-    </View>
+      {/* </View> */}
+    </SafeAreaView>
   );
 }
 
