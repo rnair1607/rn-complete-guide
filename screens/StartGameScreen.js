@@ -9,6 +9,7 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
+import BodyText from "../components/BodyText";
 import Card from "../components/Card";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
@@ -53,12 +54,6 @@ const StartGameScreen = ({ onStartGame }) => {
     Keyboard.dismiss();
   };
 
-  //   let confirmedOutput;
-
-  //   if (confirmed) {
-  //     confirmedOutput = <Text>Chosen number: {selectedNumber}</Text>;
-  //   }
-
   return (
     <TouchableWithoutFeedback
       onPress={() => {
@@ -66,9 +61,9 @@ const StartGameScreen = ({ onStartGame }) => {
       }}
     >
       <View style={screen}>
-        <Text style={title}>Start a new game</Text>
+        <BodyText style={title}>Start a new game</BodyText>
         <Card style={inputContainer}>
-          <Text style={text}>Select a number</Text>
+          <BodyText style={text}>Select a number</BodyText>
           <Input
             style={input}
             blurOnSubmit
@@ -98,7 +93,7 @@ const StartGameScreen = ({ onStartGame }) => {
         </Card>
         {confirmed && (
           <Card style={summaryContainer}>
-            <Text>You selected</Text>
+            <BodyText>You selected</BodyText>
             <NumberContainer>{selectedNumber}</NumberContainer>
             <Button
               title="START GAME"

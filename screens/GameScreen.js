@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Alert, Button, StyleSheet, Text, View } from "react-native";
+import BodyText from "../components/BodyText";
 import Card from "../components/Card";
 import NumberContainer from "../components/NumberContainer";
 
@@ -58,7 +59,7 @@ function GameScreen(props) {
 
   return (
     <View style={styles.screen}>
-      <Text>Opponent's Guess</Text>
+      <BodyText>Opponent's Guess</BodyText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <Button

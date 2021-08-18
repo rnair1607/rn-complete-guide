@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import BodyText from "../components/BodyText";
 import Colors from "../constants/color";
 
 const GameOverScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Game Over!</Text>
-      <Text>Number of rounds: {props.rounds}</Text>
-      <Text>Number: {props.number}</Text>
+      <BodyText>Game Over!</BodyText>
+      <BodyText>Number of rounds: {props.rounds}</BodyText>
+      <BodyText>Number: {props.number}</BodyText>
       <Button title="Restart" color={Colors.primary} onPress={props.newGame} />
     </View>
   );
