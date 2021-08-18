@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Image, StyleSheet, Text, View } from "react-native";
 import BodyText from "../components/BodyText";
 import Colors from "../constants/color";
+import MainButton from "../components/MainButton";
 
 const GameOverScreen = (props) => {
   return (
@@ -12,15 +13,21 @@ const GameOverScreen = (props) => {
           style={styles.image}
           fadeDuration={300}
           resizeMode="cover"
-          // source={require("../assets/success.png")}
-          source={{
-            uri: "https://t3.ftcdn.net/jpg/02/51/28/40/360_F_251284036_cU2F5jsod18MupuAAZDNtviJ68TCvLjN.jpg",
-          }}
+          source={require("../assets/success.png")}
+          // source={{
+          //   uri: "https://t3.ftcdn.net/jpg/02/51/28/40/360_F_251284036_cU2F5jsod18MupuAAZDNtviJ68TCvLjN.jpg",
+          // }}
         />
       </View>
-      <BodyText>Number of rounds: {props.rounds}</BodyText>
-      <BodyText>Number: {props.number}</BodyText>
-      <Button title="Restart" color={Colors.primary} onPress={props.newGame} />
+      <BodyText style={styles.description}>
+        Your phone needed{" "}
+        <BodyText style={styles.highlight}>{props.rounds}</BodyText> rounds to
+        guess the number{" "}
+        <BodyText style={styles.highlight}>{props.number}</BodyText>.
+      </BodyText>
+      {/* <BodyText>Number of rounds: {props.rounds}</BodyText>
+      <BodyText>Number: {props.number}</BodyText> */}
+      <MainButton onPress={props.newGame}>Restart</MainButton>
     </View>
   );
 };
@@ -32,6 +39,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 10,
   },
+  highlight: {
+    fontFamily: "open-sans-bold",
+    color: Colors.accent,
+  },
+  description: {
+    marginBottom: 10,
+    textAlign: "center",
+  },
+
   title: {
     fontFamily: "open-sans-bold",
     fontSize: 20,
